@@ -1,22 +1,25 @@
 <h1>Listing products</h1>
 
+
+<%= paginate(@products) %>
+
 <table>
   <thead>
     <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-            <th>Actions</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @products.each do |product| %>
       <tr>
-                  <td><%= product.name %></td>
-                  <td><%= product.description %></td>
-                  <td><%= product.price %></td>
-                <td>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td>
           <%= link_to 'Show', product, :class=>"btn" %>
           <%= link_to 'Edit', edit_product_path(product), :class=>"btn" %>
           <%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete, :class=>"btn" %>
@@ -25,6 +28,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate(@products) %>
 
 <div class="actions">
   <%= link_to 'New Product', new_product_path, :class=>"btn" %>
